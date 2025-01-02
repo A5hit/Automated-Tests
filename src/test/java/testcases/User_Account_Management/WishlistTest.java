@@ -2,9 +2,7 @@ package testcases.User_Account_Management;
 
 import base.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.BackPage;
 import pages.DetailPage;
 import pages.ListingPage;
@@ -16,7 +14,7 @@ public class WishlistTest extends BaseTest {
     DetailPage detailPage;
     BackPage backPage;
 
-    @BeforeClass
+    @BeforeTest
     public void setup() {
         initializeDriver();
         this.wishList = new WishList(driver);
@@ -25,7 +23,7 @@ public class WishlistTest extends BaseTest {
         this.backPage = new BackPage(driver);
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown() {
         quitDriver();
     }
@@ -38,20 +36,22 @@ public class WishlistTest extends BaseTest {
         listingPage.getAddToWishListButtons().click();
         driver.get("https://www.dailyobjects.com/uap/wlp");
         String productTitleWishlist1 = wishList.getProductTitlesWishlist();
-        Assert.assertEquals(productTitleLP,productTitleWishlist1,"Product is not added to wishlist");
+        wishList.getRemoveProductButton().click();
+        Assert.assertEquals(productTitleLP, productTitleWishlist1, "Product is not added to wishlist");
     }
 
     // Test case : Remove product from wishlist & Add to cart and verify
     @Test(priority = 2)
     public void testMoveProductToCartAndVerify() {
         driver.get("https://www.dailyobjects.com/cable-protector/dp?f=pid~CABLE-PROTECTOR");
-        String productTitleWishlist2 = wishList.getProductTitlesWishlist();
         detailPage.getAddToWishListButtonDP().click();
         driver.get("https://www.dailyobjects.com/uap/wlp");
+        String productTitleWishlist2 = wishList.getProductTitlesWishlist();
         wishList.getMoveToCartButton().click();
+        wishList.getGoToCartButton().click();
         driver.get("https://www.dailyobjects.com/bp");
         String productTitleBP = backPage.getProductTitleBP();
-        Assert.assertEquals(productTitleWishlist2,productTitleBP,"Product is not moved to cart");
+        Assert.assertEquals(productTitleWishlist2, productTitleBP, "Product is not moved to cart");
     }
 
     // Test case : Remove product from wishlist
@@ -62,6 +62,6 @@ public class WishlistTest extends BaseTest {
         driver.get("https://www.dailyobjects.com/uap/wlp");
         wishList.getRemoveProductButton().click();
         driver.navigate().refresh();
-        Assert.assertFalse(wishList.getRemoveProductButton().isDisplayed(),"Product is not removed from wishlist");
+        Assert.assertTrue(wishList.getEmptyWishListMessage().equals("YOUR WISHLIST IS EMPTY"), "Product is not removed from wishlist");
     }
 }

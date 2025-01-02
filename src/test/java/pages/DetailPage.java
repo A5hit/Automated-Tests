@@ -14,7 +14,7 @@ public class DetailPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    @FindBy(xpath = "//div[@class='swiper-container-x']//button[3]")
+    @FindBy(xpath = "//img[@alt='wishlist_black.png']")
     private WebElement addToWishListButton; // Add to Wish List button on Detail Page
 
     @FindBy(xpath="//div[@class='desc']/h1")

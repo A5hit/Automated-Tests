@@ -16,6 +16,9 @@ public class WishList {
     @FindBy(xpath = "//button[contains(.,' MOVE TO CART')]")
     private WebElement moveToCartButton; // Move to Cart button on Wish List Page
 
+    @FindBy(xpath = "//span[contains(.,'Go To Cart')]")
+    private WebElement goToCartButton; // Go To Cart button on Wish List Page
+
     @FindBy(xpath = "//*[@id=\"uapRight\"]/app-wishlist-page/div/div[1]/div/div/div[1]/p[1]")
     private WebElement productTitles; //  Product Titles on Wish List Page
 
@@ -54,12 +57,13 @@ public class WishList {
         }
     }
 
-    public WebElement getEmptyWishListMessage() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(emptyWishListMessage));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to wait for element to appear: " + emptyWishListMessage, e);
-        }
+    public WebElement getGoToCartButton() {
+        wait.until(ExpectedConditions.visibilityOf(goToCartButton));
+        return goToCartButton;
+    }
+
+    public String getEmptyWishListMessage() {
+        wait.until(ExpectedConditions.visibilityOf(emptyWishListMessage));
+        return emptyWishListMessage.getText();
     }
 }

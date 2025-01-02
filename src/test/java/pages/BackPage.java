@@ -14,7 +14,7 @@ public class BackPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    @FindBy(css = "body app-root div[class='ng-star-inserted'] div div[class='bag-page-column-desktop'] p:nth-child(1)")
+    @FindBy(xpath ="//div[@class='description']/div/p[1]")
     private WebElement productTitlesBP;  // Product Titles on Cart Page
 
     public BackPage(WebDriver driver) {

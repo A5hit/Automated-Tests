@@ -1,6 +1,7 @@
 package testcases.User_Account_Management;
 
 import base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -36,17 +37,21 @@ public class WishlistTest extends BaseTest {
         String productTitleLP = listingPage.getProductTitlesLP();
         listingPage.getAddToWishListButtons().click();
         driver.get("https://www.dailyobjects.com/uap/wlp");
-        productTitleWishlist = wishList.getProductTitlesWishlist().getText();
-        Assert.assertEquals(productTitleLP,productTitleWishlist,"Product is not added to wishlist");
+        String productTitleWishlist1 = wishList.getProductTitlesWishlist();
+        Assert.assertEquals(productTitleLP,productTitleWishlist1,"Product is not added to wishlist");
     }
 
     // Test case : Remove product from wishlist & Add to cart and verify
     @Test(priority = 2)
     public void testMoveProductToCartAndVerify() {
+        driver.get("https://www.dailyobjects.com/cable-protector/dp?f=pid~CABLE-PROTECTOR");
+        String productTitleWishlist2 = wishList.getProductTitlesWishlist();
+        detailPage.getAddToWishListButtonDP().click();
+        driver.get("https://www.dailyobjects.com/uap/wlp");
         wishList.getMoveToCartButton().click();
         driver.get("https://www.dailyobjects.com/bp");
-        productTitleBP = backPage.getProductTitleBP().getText();
-        Assert.assertEquals(productTitleWishlist,productTitleBP,"Product is not moved to cart");
+        String productTitleBP = backPage.getProductTitleBP();
+        Assert.assertEquals(productTitleWishlist2,productTitleBP,"Product is not moved to cart");
     }
 
     // Test case : Remove product from wishlist

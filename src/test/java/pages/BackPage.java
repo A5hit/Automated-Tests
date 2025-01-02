@@ -23,12 +23,8 @@ public class BackPage {
         PageFactory.initElements(driver, this);
     }
 
-    public WebElement getProductTitleBP() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(productTitlesBP));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to wait for element to appear: " + productTitlesBP, e);
-        }
+    public String getProductTitleBP() {
+        wait.until(ExpectedConditions.visibilityOf(productTitlesBP));
+        return productTitlesBP.getText();
     }
 }

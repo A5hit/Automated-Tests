@@ -28,12 +28,8 @@ public class DetailPage {
     }
 
     public WebElement getAddToWishListButtonDP () {
-        try {
-            return wait.until(ExpectedConditions.elementToBeClickable(addToWishListButton));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to wait for element to appear: " + addToWishListButton, e);
-        }
+         wait.until(ExpectedConditions.elementToBeClickable(addToWishListButton));
+         return addToWishListButton;
     }
 
     public WebElement getProductTitleDP() {

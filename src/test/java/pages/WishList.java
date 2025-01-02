@@ -31,13 +31,9 @@ public class WishList {
         PageFactory.initElements(driver, this);
     }
 
-    public WebElement getProductTitlesWishlist() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(productTitles));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to wait for element to appear: " + productTitles, e);
-        }
+    public String getProductTitlesWishlist() {
+        wait.until(ExpectedConditions.visibilityOf(productTitles));
+        return productTitles.getText();
     }
 
     public WebElement getMoveToCartButton() {

@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Basic Tests">
+<test name="Wishlist Tests">
+    <classes>
+    <class name="testcases.User_Account_Management.WishlistTest"/>
+    </classes>
+</test>
+</suite>

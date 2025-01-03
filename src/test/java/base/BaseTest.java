@@ -26,13 +26,6 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public  WebDriver getDriver() {
-        return driver;
-    }
-
-    public WebDriverWait getWait() {
-        return wait;
-    }
 
     public void quitDriver(){
         if(driver != null){

@@ -22,7 +22,7 @@ public class WishList {
     @FindBy(xpath = "//*[@id=\"uapRight\"]/app-wishlist-page/div/div[1]/div/div/div[1]/p[1]")
     private WebElement productTitles; //  Product Titles on Wish List Page
 
-    @FindBy(xpath = "//*[@id=\"uapRight\"]/app-wishlist-page/div/div[1]/div/div/div[2]/img")
+    @FindBy(xpath = "//div[@class='move-to-cart']//img")
     private WebElement removeProductButton; // Remove Product button on Wish List Page
 
     @FindBy(xpath = "//p[@class='error-page__heading']")
@@ -49,12 +49,7 @@ public class WishList {
     }
 
     public WebElement getRemoveProductButton() {
-        try {
-            return wait.until(ExpectedConditions.elementToBeClickable(removeProductButton));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to wait for element to appear: " + removeProductButton, e);
-        }
+        return wait.until(ExpectedConditions.elementToBeClickable(removeProductButton));
     }
 
     public WebElement getGoToCartButton() {

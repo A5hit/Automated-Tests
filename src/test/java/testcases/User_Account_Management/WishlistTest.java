@@ -56,12 +56,13 @@ public class WishlistTest extends BaseTest {
 
     // Test case : Remove product from wishlist
     @Test(priority = 3)
-    public void testRemoveProductFromWishlist() {
+    public void testRemoveProductFromWishlist() throws InterruptedException {
         driver.get("https://www.dailyobjects.com/cable-protector/dp?f=pid~CABLE-PROTECTOR");
         detailPage.getAddToWishListButtonDP().click();
         driver.get("https://www.dailyobjects.com/uap/wlp");
         wishList.getRemoveProductButton().click();
+        Thread.sleep(2000);
         driver.navigate().refresh();
-        Assert.assertTrue(wishList.getEmptyWishListMessage().equals("YOUR WISHLIST IS EMPTY"), "Product is not removed from wishlist");
+        Assert.assertEquals(wishList.getEmptyWishListMessage(), "YOUR WISHLIST IS EMPTY", "Product is not removed from wishlist");
     }
 }

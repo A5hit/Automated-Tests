@@ -1,6 +1,7 @@
 package testcases.User_Account_Management;
 
 import base.BaseTest;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.BackPage;
@@ -30,6 +31,11 @@ public class WishlistTest extends BaseTest {
 
     // Test case : Add product to wishlist and verify the product is added
     @Test(priority = 1)
+    @Epic("Web")
+    @Feature("Wishlist")
+    @Story("Add product to wishlist and verify the product is added")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Add product to wishlist and verify the product is added")
     public void testAddProductToWishlistAndVerify() {
         driver.get("https://www.dailyobjects.com/lp?f=cid~1707");
         String productTitleLP = listingPage.getProductTitlesLP();
@@ -42,6 +48,11 @@ public class WishlistTest extends BaseTest {
 
     // Test case : Remove product from wishlist & Add to cart and verify
     @Test(priority = 2)
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("Web")
+    @Feature("Wishlist")
+    @Story("Remove product from wishlist & Add to cart and verify")
+    @Description("Remove product from wishlist & Add to cart and verify")
     public void testMoveProductToCartAndVerify() {
         driver.get("https://www.dailyobjects.com/cable-protector/dp?f=pid~CABLE-PROTECTOR");
         detailPage.getAddToWishListButtonDP().click();
@@ -56,6 +67,10 @@ public class WishlistTest extends BaseTest {
 
     // Test case : Remove product from wishlist
     @Test(priority = 3)
+    @Severity(SeverityLevel.NORMAL) @Epic("Web")
+    @Feature("Wishlist")
+    @Story("Remove product from wishlist")
+    @Description("Remove product from wishlist")
     public void testRemoveProductFromWishlist() throws InterruptedException {
         driver.get("https://www.dailyobjects.com/cable-protector/dp?f=pid~CABLE-PROTECTOR");
         detailPage.getAddToWishListButtonDP().click();

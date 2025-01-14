@@ -17,8 +17,14 @@ public class DetailPage {
     @FindBy(xpath = "//img[@alt='wishlist_black.png']")
     private WebElement addToWishListButton; // Add to Wish List button on Detail Page
 
-    @FindBy(xpath="//div[@class='desc']/h1")
-    private WebElement productTitleDP; // Product Title on Detail Page
+    @FindBy(xpath = "//div[@class='desc']/h1")
+    private WebElement productTitleDP;
+
+    @FindBy(xpath = "//div[@class='dp-content']/div[@class='ng-star-inserted']/button")
+    private WebElement addToCartListButton; // Product Add-to-cart button on Detail Page
+
+    @FindBy(xpath = "//div[@class='cdk-overlay-container']//app-cros-selling-page//mat-dialog-actions//mat-card//button")
+    private WebElement overlayGoToCartButton; // Go to Cart button on Overlay
 
 
     public DetailPage(WebDriver driver) {
@@ -27,18 +33,34 @@ public class DetailPage {
         PageFactory.initElements(driver, this);
     }
 
-    public WebElement getAddToWishListButtonDP () {
-         wait.until(ExpectedConditions.elementToBeClickable(addToWishListButton));
-         return addToWishListButton;
+    public WebElement getAddToWishListButtonDP() {
+        wait.until(ExpectedConditions.elementToBeClickable(addToWishListButton));
+        return addToWishListButton;
     }
 
-    public WebElement getProductTitleDP() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(productTitleDP));
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to wait for element to appear: " + productTitleDP, e);
+    public WebElement getAddToCartButtonDP() {
+        wait.until(ExpectedConditions.elementToBeClickable(addToCartListButton));
+        return addToCartListButton;
+    }
+
+    public WebElement getOverlayGoToCartButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(overlayGoToCartButton));
+        return overlayGoToCartButton;
+    }
+
+    public void getProductAddedToCart() {
+        getAddToCartButtonDP().click();
+        if (!getOverlayGoToCartButton().isDisplayed()) {
+            getAddToCartButtonDP().click();
+        } else {
+            getOverlayGoToCartButton().click();
         }
     }
+
+    public String getProductTitleDP() {
+        wait.until(ExpectedConditions.visibilityOf(productTitleDP));
+        return productTitleDP.getText();
+    }
+
 
 }

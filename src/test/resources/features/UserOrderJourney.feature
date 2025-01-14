@@ -1,30 +1,18 @@
-Feature  : User Order Journey
+Feature  : Product Purchase Journey
 
-  Scenario: User should be able to place an order successfully
-    Given User is on Home Page
-    When User Navigate to LogIn Page
-    And User enters UserName and Password
-    Then Message displayed Login Successfully
-    When User LogOut from the Application
-    Then Message displayed LogOut Successfully
-    When User LogIn to the Application
-    And User Add Product to Cart
+  Scenario Outline : User should be able to place an order successfully
+    Given User is on Product Page <product_url>
+    When User Add Product to Cart and Proceed to Checkout
     And User Enter Shipping Details
     And User Enter Payment Details
     And User Place the Order
     Then Message displayed Order Placed Successfully
+    Examples:
+      | Product                                                                 |
+      | "https://www.dailyobjects.com/cable-protector/dp?f=pid~CABLE-PROTECTOR" |
 
-  Scenario: User should be able to place an order successfully
-    Given User is on Home Page
-    When User Navigate to LogIn Page
-    And User enters UserName and Password
-    Then Message displayed Login Successfully
-    When User LogOut from the Application
-    Then Message displayed LogOut Successfully
-    When User LogIn to the Application
-    And User Add Product to Cart
-    And User Enter Shipping Details
-    And User Enter Payment Details
-    And User Place the Order
-    Then Message displayed Order Placed Successfully
 
+  Scenario: User should be able to cancel the order successfully
+    Given User is on Order Page
+    When User Click on Cancel Order
+    Then Message displayed Order Cancelled Successfully

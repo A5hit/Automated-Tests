@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 
 
 
-public class UserOrderJourneyTest extends BaseTest {
+public class ProductPurchaseJourneyTest extends BaseTest {
 
 
     @BeforeTest

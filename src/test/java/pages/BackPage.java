@@ -14,8 +14,11 @@ public class BackPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    @FindBy(xpath ="//div[@class='description']/div/p[1]")
+    @FindBy(xpath = "//div[@class='description']/div/p[1]")
     private WebElement productTitlesBP;  // Product Titles on Cart Page
+
+    @FindBy(xpath = "//app-price-display[@class='d-price-display']//mat-card//button")
+    private WebElement proceedToCheckoutButton; // Proceed to Checkout button on Cart Page
 
     public BackPage(WebDriver driver) {
         this.driver = driver;
@@ -26,5 +29,10 @@ public class BackPage {
     public String getProductTitleBP() {
         wait.until(ExpectedConditions.visibilityOf(productTitlesBP));
         return productTitlesBP.getText();
+    }
+
+    public void clickProceedToCheckoutButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButton));
+        proceedToCheckoutButton.click();
     }
 }

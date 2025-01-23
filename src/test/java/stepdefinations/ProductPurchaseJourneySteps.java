@@ -1,7 +1,8 @@
 package stepdefinations;
 
-import base.BaseTest;
+import driverInit.BaseTest;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.BackPage;
 import pages.DetailPage;
@@ -15,7 +16,7 @@ public class ProductPurchaseJourneySteps extends BaseTest {
 
     @Given("User is on Product Page <product_url>")
     public void user_is_on_the_product_page(String url) {
-        initializeDriver();
+        setup();
         this.detailPage = new DetailPage(driver);
         this.backPage = new BackPage(driver);
         driver.get(url);

@@ -1,6 +1,6 @@
 package testcases.User_Account_Management;
 
-import base.BaseTest;
+import driverInit.BaseTest;
 import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -10,23 +10,22 @@ import pages.ListingPage;
 import pages.WishList;
 
 public class WishlistTest extends BaseTest {
+
+
     WishList wishList;
     ListingPage listingPage;
     DetailPage detailPage;
     BackPage backPage;
 
+
     @BeforeTest
+    @Override
     public void setup() {
-        initializeDriver();
+        super.setup();
         this.wishList = new WishList(driver);
         this.listingPage = new ListingPage(driver);
         this.detailPage = new DetailPage(driver);
         this.backPage = new BackPage(driver);
-    }
-
-    @AfterTest
-    public void tearDown() {
-        quitDriver();
     }
 
     // Test case : Add product to wishlist and verify the product is added
@@ -67,7 +66,8 @@ public class WishlistTest extends BaseTest {
 
     // Test case : Remove product from wishlist
     @Test(priority = 3)
-    @Severity(SeverityLevel.NORMAL) @Epic("Web")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("Web")
     @Feature("Wishlist")
     @Story("Remove product from wishlist")
     @Description("Remove product from wishlist")

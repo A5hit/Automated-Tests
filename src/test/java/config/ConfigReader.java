@@ -8,7 +8,7 @@ public class ConfigReader {
 
     public static String BROWSER = getValuePropertyFromConfig("Browser");
     public static String HEADLESS = getValuePropertyFromConfig("Browser_headless");
-    public static String WAIT_TIMEOUT = getValuePropertyFromConfig("Wait_timeout");
+    public static Integer WAIT_TIMEOUT = Integer.valueOf(getValuePropertyFromConfig("Wait_timeout"));
     public static String PROFILE = getValuePropertyFromConfig("User_browser_profile");
 
 

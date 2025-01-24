@@ -2,15 +2,18 @@ package stepdefinations;
 
 import driverInit.BaseTest;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.BackPage;
+import pages.CheckoutPage;
 import pages.DetailPage;
+import pages.PopUps;
 
 public class ProductPurchaseJourneySteps extends BaseTest {
 
     DetailPage detailPage;
     BackPage backPage;
+    PopUps popUps;
+    CheckoutPage checkoutPage;
     String productTitleDP;
     String productTitleBP;
 
@@ -31,27 +34,24 @@ public class ProductPurchaseJourneySteps extends BaseTest {
         backPage.clickProceedToCheckoutButton();
     }
 
-    @And("User Enter Shipping Details")
-    public void user_enter_shipping_details() {
-
-
+    @And("User Enter Shipping Details <{string}> <{string}> <{string}> <{string}> <{string}> <{string}>")
+    public void userEnterShippingDetails(String fullName, String email, Integer pincode, String address1, String address2, String landmark) {
+        popUps.enterShippingDetails(fullName, email, pincode, address1, address2, landmark);
     }
 
     @And("User Enter Payment Details")
     public void user_enter_payment_details() {
-        // Write code here that turns the phrase above into concrete actions
-
+        checkoutPage.clickContinueButton();
+        checkoutPage.selectCODPaymentOption();
     }
 
     @And("User Place the Order")
     public void user_place_the_order() {
-        // Write code here that turns the phrase above into concrete actions
-
+        checkoutPage.clickPlaceOrderButton();
     }
 
     @Then("Message displayed Order Placed Successfully")
     public void message_displayed_order_placed_successfully() {
-        // Write code here that turns the phrase above into concrete actions
 
     }
 

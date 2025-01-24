@@ -61,6 +61,7 @@ public class DriverFactory {
             options.addArguments("user-data-dir=C:\\Users\\sh4d0\\AquaProjects\\Automated-Tests\\ChromeProfiles\\Profile 2");
         }
         driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(waitTimeout));
         return driver;
     }

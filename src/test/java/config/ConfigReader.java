@@ -10,6 +10,7 @@ public class ConfigReader {
     public static String HEADLESS = getValuePropertyFromConfig("Browser_headless");
     public static Integer WAIT_TIMEOUT = Integer.valueOf(getValuePropertyFromConfig("Wait_timeout"));
     public static String PROFILE = getValuePropertyFromConfig("User_browser_profile");
+    public static String BackPageURL = getValuePropertyFromConfig("BackPage_url");
 
 
     public static String getValuePropertyFromConfig(String key) {

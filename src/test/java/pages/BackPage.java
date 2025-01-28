@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.HelperMethods;
 
 import java.time.Duration;
 
@@ -20,6 +21,12 @@ public class BackPage {
 
     @FindBy(xpath = "//app-price-display[@class='d-price-display']//mat-card//button")
     private WebElement proceedToCheckoutButton; // Proceed to Checkout button on Cart Page
+
+    @FindBy(xpath = "//div[@class='description']//button//img[@alt='bin.png']")
+    private WebElement removeProductButton;
+
+    @FindBy(xpath = "//p[contains(.,'YOUR SHOPPING CART IS EMPTY')]")
+    private WebElement emptyCartMessage;        // Empty Cart Message
 
     public BackPage(WebDriver driver) {
         this.driver = driver;
@@ -37,5 +44,13 @@ public class BackPage {
         proceedToCheckoutButton.click();
     }
 
+    public void removeProductFromCart() {
+       HelperMethods.waitForElementToBeVisible(driver, removeProductButton);
+         HelperMethods.clickElement(removeProductButton);
+    }
+
+    public boolean isCartEmpty() {
+       return HelperMethods.isElementDisplayed(emptyCartMessage);
+    }
 
 }

@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Cucumber" parallel="false">
+    <test name="Product Purchase Journey Test">
+        <classes>
+            <class name="testcases.Product_Management.ProductPurchaseJourneyTest"/>
+        </classes>
+    </test>
+</suite>

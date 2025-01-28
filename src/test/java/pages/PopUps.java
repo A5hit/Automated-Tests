@@ -46,6 +46,9 @@ public class PopUps {
     @FindBy(xpath = "//div[@class='cdk-overlay-pane desktop-screen-dialog-add-address']//button//span[contains(.,'ADD ADDRESS')]")
     private WebElement addAddressButton;
 
+    @FindBy(xpath = "//mat-dialog-container//span[contains(.,'REMOVE')]")
+    private WebElement removeButton;
+
     public void enterShippingDetails(String fullName, String email, Integer pincode, String address1, String address2, String landmark) {
         HelperMethods.waitForElementToBeVisible(driver, addAddressPopUp);
         HelperMethods.clickElement(addAddressPopUp);
@@ -58,7 +61,10 @@ public class PopUps {
         HelperMethods.clickElement(addAddressButton);
     }
 
-
+    public void removefromCart() {
+        HelperMethods.waitForElementToBeVisible(driver, removeButton);
+        HelperMethods.clickElement(removeButton);
+    }
 
 
 }

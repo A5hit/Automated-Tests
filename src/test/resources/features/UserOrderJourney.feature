@@ -1,5 +1,8 @@
 Feature  : Product Purchase Journey
 
+  Background:
+    User have blank cart & blank Address
+
   Scenario Outline : User should be able to place an order successfully
     Given User is on Product Page <product_url>
     When User Add Product to Cart and Proceed to Checkout

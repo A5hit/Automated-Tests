@@ -6,11 +6,11 @@ import java.util.Properties;
 
 public class ConfigReader {
 
+    public static final String PROFILE_PATH =getValuePropertyFromConfig("Browser_profile_path") ;
     public static String BROWSER = getValuePropertyFromConfig("Browser");
     public static String HEADLESS = getValuePropertyFromConfig("Browser_headless");
     public static Integer WAIT_TIMEOUT = Integer.valueOf(getValuePropertyFromConfig("Wait_timeout"));
     public static String PROFILE = getValuePropertyFromConfig("User_browser_profile");
-    public static String BackPageURL = getValuePropertyFromConfig("BackPage_url");
 
 
     public static String getValuePropertyFromConfig(String key) {

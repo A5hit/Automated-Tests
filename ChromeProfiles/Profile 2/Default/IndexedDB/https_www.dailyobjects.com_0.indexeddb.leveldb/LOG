@@ -1,0 +1,37 @@
+2025/01/30-19:00:30.068 290c Reusing MANIFEST C:\Users\sh4d0\AquaProjects\Automated-Tests\ChromeProfiles\Profile 2\Default\IndexedDB\https_www.dailyobjects.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/01/30-19:00:30.069 290c Recovering log #36
+2025/01/30-19:00:30.069 290c Reusing old log C:\Users\sh4d0\AquaProjects\Automated-Tests\ChromeProfiles\Profile 2\Default\IndexedDB\https_www.dailyobjects.com_0.indexeddb.leveldb/000036.log 
+2025/01/30-19:00:30.070 290c Delete type=2 #35
+2025/01/30-19:00:30.877 285c Level-0 table #41: started
+2025/01/30-19:00:30.880 285c Level-0 table #41: 7647 bytes OK
+2025/01/30-19:00:30.882 285c Delete type=0 #36
+2025/01/30-19:00:30.882 ba4 Manual compaction at level-0 from '\x00\x12\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x13\x00\x00\x00' @ 0 : 0; will stop at '\x00\x12\x00\x00\x05' @ 2770 : 1
+2025/01/30-19:00:30.883 ba4 Compacting 1@0 + 1@1 files
+2025/01/30-19:00:30.887 ba4 Generated table #42@0: 986 keys, 12388 bytes
+2025/01/30-19:00:30.887 ba4 Compacted 1@0 + 1@1 files => 12388 bytes
+2025/01/30-19:00:30.888 ba4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/01/30-19:00:30.888 ba4 Delete type=2 #41
+2025/01/30-19:00:30.889 ba4 Manual compaction at level-0 from '\x00\x12\x00\x00\x05' @ 2770 : 1 .. '\x00\x13\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/01/30-19:00:32.076 2ee8 Manual compaction at level-0 from '\x00\x13\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x14\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/01/30-19:00:33.794 285c Level-0 table #44: started
+2025/01/30-19:00:33.805 285c Level-0 table #44: 14690 bytes OK
+2025/01/30-19:00:33.806 285c Delete type=2 #38
+2025/01/30-19:00:33.806 285c Delete type=0 #40
+2025/01/30-19:00:33.807 ba4 Manual compaction at level-0 from '\x00\x14\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x15\x00\x00\x00' @ 0 : 0; will stop at '\x00\x14\x00\x00\x05' @ 3084 : 1
+2025/01/30-19:00:33.808 ba4 Compacting 1@0 + 1@1 files
+2025/01/30-19:00:33.812 ba4 Generated table #45@0: 1003 keys, 12374 bytes
+2025/01/30-19:00:33.812 ba4 Compacted 1@0 + 1@1 files => 12374 bytes
+2025/01/30-19:00:33.813 ba4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/01/30-19:00:33.814 ba4 Delete type=2 #44
+2025/01/30-19:00:33.815 ba4 Manual compaction at level-0 from '\x00\x14\x00\x00\x05' @ 3084 : 1 .. '\x00\x15\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/01/30-19:00:34.508 285c Level-0 table #47: started
+2025/01/30-19:00:34.511 285c Level-0 table #47: 7434 bytes OK
+2025/01/30-19:00:34.512 285c Delete type=2 #42
+2025/01/30-19:00:34.512 285c Delete type=0 #43
+2025/01/30-19:00:34.514 ba4 Manual compaction at level-0 from '\x00\x15\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x16\x00\x00\x00' @ 0 : 0; will stop at '\x00\x15\x00\x00\x05' @ 3226 : 1
+2025/01/30-19:00:34.514 ba4 Compacting 1@0 + 1@1 files
+2025/01/30-19:00:34.517 ba4 Generated table #48@0: 1009 keys, 12438 bytes
+2025/01/30-19:00:34.517 ba4 Compacted 1@0 + 1@1 files => 12438 bytes
+2025/01/30-19:00:34.518 ba4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/01/30-19:00:34.518 ba4 Delete type=2 #47
+2025/01/30-19:00:34.519 ba4 Manual compaction at level-0 from '\x00\x15\x00\x00\x05' @ 3226 : 1 .. '\x00\x16\x00\x00\x00' @ 0 : 0; will stop at (end)

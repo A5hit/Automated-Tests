@@ -15,6 +15,7 @@ public class BackPage {
 
     WebDriver driver;
     WebDriverWait wait;
+    public String BackPageURL = "https://dev.marche.dailyobjects.com/bp";
 
     @FindBy(xpath = "//div[@class='description']/div/p[1]")
     private WebElement productTitlesBP;  // Product Titles on Cart Page
@@ -50,7 +51,13 @@ public class BackPage {
     }
 
     public boolean isCartEmpty() {
-       return HelperMethods.isElementDisplayed(emptyCartMessage);
+        try {
+            return HelperMethods.isElementDisplayed(emptyCartMessage);
+        }
+        catch (Exception e) {
+            return false;
+        }
+
     }
 
 }

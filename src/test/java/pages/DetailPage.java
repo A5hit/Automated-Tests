@@ -51,10 +51,14 @@ public class DetailPage {
 
     public void getProductAddedToCart() {
         getAddToCartButtonDP().click();
-        if (!getOverlayGoToCartButton().isDisplayed()) {
+        try {
+            if (getOverlayGoToCartButton().isDisplayed()) {
+                getAddToCartButtonDP().click();
+            } else {
+                getOverlayGoToCartButton().click();
+            }
+        } catch (Exception ignored) {
             getAddToCartButtonDP().click();
-        } else {
-            getOverlayGoToCartButton().click();
         }
     }
 

@@ -1,27 +1,27 @@
 package testcases.User_Account_Management;
 
-import driverInit.BaseTest;
+import driverInit.DriverFactory;
 import io.qameta.allure.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.BackPage;
 import pages.DetailPage;
 import pages.ListingPage;
-import pages.WishList;
+import pages.user_account_pages.WishList;
 
-public class WishlistTest extends BaseTest {
+public class WishlistTest extends DriverFactory {
 
-
+    WebDriver driver;
     WishList wishList;
     ListingPage listingPage;
     DetailPage detailPage;
     BackPage backPage;
 
 
-    @BeforeTest
-    @Override
+    @BeforeMethod
     public void setup() {
-        super.setup();
+        this.driver = initializeDriver();
         this.wishList = new WishList(driver);
         this.listingPage = new ListingPage(driver);
         this.detailPage = new DetailPage(driver);

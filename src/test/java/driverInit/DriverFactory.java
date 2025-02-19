@@ -12,11 +12,11 @@ import java.time.Duration;
 public class DriverFactory {
 
     private WebDriver driver;
-    private WebDriverWait wait;
-    private String isheadless = ConfigReader.HEADLESS;
-    private String browser = ConfigReader.BROWSER;
-    private String profile = ConfigReader.PROFILE;
-    private Integer waitTimeout = Integer.valueOf(ConfigReader.WAIT_TIMEOUT);
+    private final String isheadless = ConfigReader.HEADLESS;
+    private final String browser = ConfigReader.BROWSER;
+    private final String profile = ConfigReader.PROFILE;
+    private final Integer waitTimeout = ConfigReader.WAIT_TIMEOUT;
+    private final String profilePath = ConfigReader.PROFILE_PATH;
 
 
 
@@ -26,10 +26,6 @@ public class DriverFactory {
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }
-        return driver;
-    }
-
-    public WebDriver getDriver() {
         return driver;
     }
 
@@ -54,15 +50,17 @@ public class DriverFactory {
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-debugging-port=9222");
         if (isheadless.equalsIgnoreCase("true")) {
             options.addArguments("--headless");
         }
         if (profile.equalsIgnoreCase("true")) {
-            options.addArguments("user-data-dir=C:\\Users\\sh4d0\\AquaProjects\\Automated-Tests\\ChromeProfiles\\Profile 2");
+            options.addArguments("user-data-dir="+profilePath);
+            options.addArguments("profile-directory=Profile 2");
         }
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(waitTimeout));
+        WebDriverWait wait =new  WebDriverWait(driver, Duration.ofSeconds(waitTimeout));
         return driver;
     }
 

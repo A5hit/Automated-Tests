@@ -1,0 +1,5 @@
+2025/01/30-19:00:29.535 f08 Reusing MANIFEST C:\Users\sh4d0\AquaProjects\Automated-Tests\ChromeProfiles\Profile 2\Default\Local Storage\leveldb/MANIFEST-000001
+2025/01/30-19:00:29.548 f08 Recovering log #3
+2025/01/30-19:00:29.553 f08 Reusing old log C:\Users\sh4d0\AquaProjects\Automated-Tests\ChromeProfiles\Profile 2\Default\Local Storage\leveldb/000003.log 
+2025/01/30-19:01:03.559 4f0 Level-0 table #5: started
+2025/01/30-19:01:03.567 4f0 Level-0 table #5: 24263 bytes OK

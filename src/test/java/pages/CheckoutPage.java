@@ -31,17 +31,17 @@ public class CheckoutPage {
     private WebElement placeOrderButton;
 
     public void clickContinueButton() {
-        HelperMethods.waitForElementToBeVisible(driver, continueButton);
+        HelperMethods.waitForElementToBeClickable(driver, continueButton);
         HelperMethods.clickElement(continueButton);
     }
 
     public void selectCODPaymentOption() {
-        HelperMethods.waitForElementToBeVisible(driver, codPaymentOption);
+        HelperMethods.waitForElementToBeClickable(driver, codPaymentOption);
         HelperMethods.clickElement(codPaymentOption);
     }
 
     public void clickPlaceOrderButton() {
-        HelperMethods.waitForElementToBeVisible(driver, placeOrderButton);
+        HelperMethods.waitForElementToBeClickable(driver, placeOrderButton);
         HelperMethods.clickElement(placeOrderButton);
     }
 

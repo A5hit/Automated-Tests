@@ -37,7 +37,7 @@ public class ProductPurchaseJourneySteps extends DriverFactory {
         userOrdersDetail = new User_Orders_Detail(driver);
     }
 
-    @Given("User has a blank cart and blank address")
+    @Given("Given the user's cart and saved address are empty")
     public void userHasABlankCartAndBlankAddress() {
         driver.get(backPage.BackPageURL);
         if (!backPage.isCartEmpty()) {
@@ -86,7 +86,7 @@ public class ProductPurchaseJourneySteps extends DriverFactory {
         checkoutPage.clickPlaceOrderButton();
     }
 
-    @Then("Message displayed Order Placed Successfully")
+    @Then("the confirmation message 'Order Placed Successfully' should be displayed")
     public void message_displayed_order_placed_successfully() {
         this.orderNumber = checkoutStatusPage.getOrderNumber();
         Assert.assertEquals(checkoutStatusPage.getOrderPlacedSuccessfullyMessage(), "ORDER RECEIVED", "Order Placed Successfully message is not displayed");
